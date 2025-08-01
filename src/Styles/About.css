@@ -1,0 +1,93 @@
+/* src/pages/About.css */
+
+.about {
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* INTRO */
+.intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.intro h1 {
+  color: gold;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* TEAM */
+.team {
+  text-align: center;
+}
+
+.team h2 {
+  color: #f0c200;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 0 10px;
+}
+.team-card {
+  background-color: gold;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.team-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.team-card h3 {
+  color: rgb(34, 29, 2);
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+}
+
+.team-card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Optional: reduce padding on very small screens */
+@media (max-width: 480px) {
+  .about {
+    padding: 20px 10px;
+  }
+
+  .intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .team h2 {
+    font-size: 1.5rem;
+  }
+}
+
+

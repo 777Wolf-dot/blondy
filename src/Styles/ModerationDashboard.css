@@ -1,0 +1,21 @@
+.moderation-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.moderation-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.moderation-card img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.moderation-card button {
+  margin-right: 10px;
+}

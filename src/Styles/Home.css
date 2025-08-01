@@ -1,0 +1,98 @@
+/* src/pages/Home.css */
+
+.home {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* HERO SECTION */
+.hero {
+  /*background: linear-gradient(to right, #fffbe6, #fff);*/
+  /*background: #facf0e;*/
+  background: gold;
+  text-align: center;
+  padding: 80px 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #3a3939;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: white;
+  color: black;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: goldenrod;
+}
+
+/* VALUES SECTION */
+.values {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.values h2 {
+  color: goldenrod;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.value-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background-color: gold;
+  padding: 23px;
+  border-radius: 15px;
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .value-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    margin-left: auto;
+  }
+}
