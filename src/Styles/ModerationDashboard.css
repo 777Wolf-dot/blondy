@@ -1,21 +1,50 @@
 .moderation-container {
-  padding: 20px;
-  max-width: 900px;
+  max-width: 800px;
   margin: auto;
+  padding: 1rem;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
 .moderation-card {
   border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .moderation-card img {
-  width: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-.moderation-card button {
-  margin-right: 10px;
+.moderation-actions button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.status-approved {
+  color: green;
+  font-weight: bold;
+}
+
+.status-rejected {
+  color: red;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: orange;
+  font-weight: bold;
 }

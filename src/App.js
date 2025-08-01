@@ -7,6 +7,11 @@ import About from './Pages/About';
 import Membership from './Pages/Membership';
 import Signup from './Pages/Signup';
 import ViewMembers from './Pages/ViewMembers';
+import ModerationDashboard from './Pages/ModerationDashboard';
+import Login from './Pages/Login';
+
+
+
 
 function App() {
   return (
@@ -18,6 +23,9 @@ function App() {
         <Route path='/membership' element={<Membership/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/viewmembers' element={<ViewMembers/>}/>
+        <Route path="/moderation" element={<ModerationDashboard />} />
+       <Route path="/login" element={<Login />} />
+       
         {/* More pages will go here */}
       </Routes>
     </>

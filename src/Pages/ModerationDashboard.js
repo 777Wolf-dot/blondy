@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../supabaseClient';
+import '../Styles/ModerationDashboard.css';
 
 const ModerationDashboard = () => {
   const [members, setMembers] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [checkingAdmin, setCheckingAdmin] = useState(true); // To delay rendering until check complete
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const checkAdmin = async () => {
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
-      if (userError || !user) {
-        console.error('Failed to get user:', userError);
+      if (!user) {
         setIsAdmin(false);
-        setCheckingAdmin(false);
         return;
       }
 
@@ -24,91 +25,100 @@ const ModerationDashboard = () => {
         .single();
 
       if (error) {
-        console.error('Role fetch error:', error);
+        console.error('Error fetching role:', error);
         setIsAdmin(false);
       } else {
         setIsAdmin(data?.role === 'admin');
       }
-      setCheckingAdmin(false);
     };
 
     checkAdmin();
   }, []);
 
+  const fetchMembers = async () => {
+    const { data, error } = await supabase
+      .from('members')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) console.error('Error fetching members:', error);
+    else setMembers(data);
+  };
+
   useEffect(() => {
-    const fetchMembers = async () => {
-      const { data, error } = await supabase
-        .from('members')
-        .select('*')
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        console.error('Error fetching members:', error);
-      } else {
-        setMembers(data);
-      }
-    };
-
     fetchMembers();
   }, []);
 
-  const updateStatus = async (id, newStatus) => {
-    const { error } = await supabase
-      .from('members')
-      .update({ status: newStatus })
-      .eq('id', id);
-
-    if (error) {
-      console.error('Error updating status:', error);
-    } else {
-      // Refresh members list
-      const { data, error: refetchError } = await supabase
+  const handleStatusUpdate = async (memberId, newStatus) => {
+    try {
+      const { error } = await supabase
         .from('members')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .update({ status: newStatus })
+        .eq('id', memberId);
 
-      if (refetchError) {
-        console.error('Refetch error:', refetchError);
+      if (error) {
+        console.error("Status update error:", error.message || error);
+        alert(`Failed to update status: ${error.message}`);
       } else {
-        setMembers(data);
+        alert('Status updated successfully.');
+        fetchMembers(); // Refresh list
       }
+    } catch (err) {
+      console.error("Unexpected error:", err.message || err);
+      alert("Something went wrong while updating status.");
     }
   };
 
-  if (checkingAdmin) return <p>Checking access...</p>;
+  const filteredMembers = members.filter(member =>
+    member.full_name?.toLowerCase().includes(search.toLowerCase())
+  );
+
   if (!isAdmin) return <p>You do not have permission to view this page.</p>;
 
   return (
-    <div className="moderation-container" style={{ padding: '20px' }}>
+    <div className="moderation-container">
       <h2>Moderation Dashboard</h2>
-      {members.length === 0 ? (
+
+      <input
+        type="text"
+        placeholder="Search by name..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="search-bar"
+      />
+
+      {filteredMembers.length === 0 ? (
         <p>No members found.</p>
       ) : (
-        members.map(member => (
-          <div key={member.id} className="moderation-card" style={{
-            border: '1px solid #ccc',
-            borderRadius: '10px',
-            padding: '15px',
-            marginBottom: '15px',
-            display: 'flex',
-            gap: '15px',
-            alignItems: 'center',
-          }}>
+        filteredMembers.map(member => (
+          <div key={member.id} className="moderation-card">
             <img
-              src={member.photo_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.full_name)}&background=random`}
+              src={member.photo_url || 'https://via.placeholder.com/100'}
               alt={member.full_name}
-              width="80"
-              height="80"
-              style={{ borderRadius: '50%', objectFit: 'cover' }}
             />
-            <div>
-              <h3>{member.full_name}</h3>
-              <p><strong>Email:</strong> {member.email}</p>
-              <p><strong>Status:</strong> {member.status || 'pending'}</p>
-              <div style={{ marginTop: '10px' }}>
-                <button onClick={() => updateStatus(member.id, 'approved')} style={{ marginRight: '10px' }}>Approve</button>
-                <button onClick={() => updateStatus(member.id, 'rejected')}>Reject</button>
-              </div>
+            <h3>{member.full_name}</h3>
+            <p><strong>Email:</strong> {member.email}</p>
+            <p>
+              <strong>Status:</strong>{' '}
+              <span
+                className={
+                  member.status === 'approved'
+                    ? 'status-approved'
+                    : member.status === 'rejected'
+                    ? 'status-rejected'
+                    : 'status-pending'
+                }
+              >
+                {member.status || 'pending'}
+              </span>
+            </p>
+            <div className="moderation-actions">
+              <button onClick={() => handleStatusUpdate(member.id, 'approved')}>
+                ✅ Approve
+              </button>
+              <button onClick={() => handleStatusUpdate(member.id, 'rejected')}>
+                ❌ Reject
+              </button>
             </div>
           </div>
         ))
