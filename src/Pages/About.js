@@ -33,7 +33,7 @@ const teamMembers = [
     role: 'Director of Events & Logistics',
     image: "https://i.ibb.co/jPFShrQQ/Whats-App-Image-2025-07-31-at-02-49-29.jpg",
   },
-   {
+  {
     name: "Nyamwaya Owino Okowa Remmy",
     role: 'Director of Communications & Public Relations',
     image: "https://i.ibb.co/4w23C9Bq/Whats-App-Image-2025-07-31-at-02-50-08.jpg",
@@ -43,7 +43,7 @@ const teamMembers = [
     role: "Director of Membership & Welfare",
     image:"https://i.ibb.co/1t6H8ZBx/Whats-App-Image-2025-07-31-at-02-51-27.jpg",
   },
-    {
+  {
     name: "Innocent Barassa",
     role: "Director General",
     image: "https://i.ibb.co/jZkDrH34/Whats-App-Image-2025-07-31-at-02-51-57.jpg",
@@ -60,6 +60,21 @@ const About = () => {
         </p>
       </section>
 
+      {/* === VISION & MISSION SECTION === */}
+      <section className="vision-mission">
+        <h2>Our Motto</h2>
+        <p><strong>"Young Minds, Bold Vision, United Africa"</strong></p>
+
+        <h2>Our Vision</h2>
+        <p>
+          To nurture a dynamic generation of visionary, ethical, perceptive, charismatic, 
+          influential, and empowered young African leaders who are committed to advancing 
+          the political, economic, social, and cultural transformation of Africa through unity, 
+          innovation, and strategic leadership.
+        </p>
+      </section>
+
+      {/* === TEAM SECTION === */}
       <section className="team">
         <h2>Meet Our Team</h2>
         <div className="team-grid">

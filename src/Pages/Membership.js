@@ -41,7 +41,7 @@ const Membership = () => {
             <h3>Associate</h3>
             <p>Ksh 1000</p>
             <ul>
-              <li>All Basic features</li>
+              <li>All Associate features</li>
               <li>Priority access to events</li>
               <li>Leadership workshops</li>
             </ul>
@@ -52,7 +52,7 @@ const Membership = () => {
             <h3>Honorary</h3>
             <p>Awarded</p>
             <ul>
-              <li>All Pro features</li>
+              <li>All Honorory features</li>
               <li>Official recognition</li>
               <li>Mentorship + Networking</li>
             </ul>

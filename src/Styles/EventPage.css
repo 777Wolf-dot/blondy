@@ -1,0 +1,58 @@
+/* src/pages/EventPage.css */
+.event-page {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.event-page h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.event-card {
+  background-color: #fffefa;
+  border: 1px solid #e5e5e5;
+  border-left: 6px solid #f9b700;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.event-card p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .event-page {
+    padding: 1rem;
+  }
+
+  .event-card {
+    padding: 0.8rem;
+  }
+
+  .event-card h3 {
+    font-size: 1rem;
+  }
+}

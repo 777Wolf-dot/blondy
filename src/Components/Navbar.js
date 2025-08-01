@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="logo">
           <img
-            src="https://i.ibb.co/jPGFt4TB/f9648caa-cb4b-44fe-8f16-81bf86129709.jpg"
+            src= "https://i.ibb.co/Ljh5TgC/Whats-App-Image-2025-08-01-at-07-05-17.jpg"
             alt="Association Logo"
           />
         </Link>
@@ -53,7 +53,8 @@ const Navbar = () => {
           <li><Link to="/membership" onClick={closeMenu}>Membership</Link></li>
           <li><Link to="/events" onClick={closeMenu}>Events</Link></li>
           <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
-
+           <li><Link to="/admin/program">Admin Program</Link></li>
+        <li><Link to="/admin/events">Admin Events</Link></li>
           {/* Conditionally show Moderation Dashboard if admin */}
           {isAdmin && (
             <li><Link to="/moderation" onClick={closeMenu}>Moderation Dashboard</Link></li>

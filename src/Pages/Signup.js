@@ -57,7 +57,7 @@ const Signup = () => {
     }
 
     // Store user data in Supabase
-  const { error } = await supabase
+const { error } = await supabase
   .from('members')
   .insert([{
     full_name: formData.fullName,
@@ -65,7 +65,9 @@ const Signup = () => {
     phone: formData.phone,
     location: formData.location,
     photo_url: photoUrl,
+    status: 'pending'  // ✅ Add this line
   }]);
+
 
 
     if (error) {
