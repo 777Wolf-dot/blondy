@@ -16,8 +16,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="logo">
           <img
-            src="https://i.ibb.co/MDDFKxT1/24e064de-badc-4b95-a903-40829bf24a76.jpg"
-            alt="Association Logo"
+            src= "https://i.ibb.co/jPGFt4TB/f9648caa-cb4b-44fe-8f16-81bf86129709.jpg"      alt="Association Logo"
           />
         </Link>
 

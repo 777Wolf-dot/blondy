@@ -20,7 +20,7 @@ const teamMembers = [
   },
   {
     name: 'Briton Felix',
-    role: 'Unity Ambassador',
+    role: 'Global Ambassador',
     image: "https://i.ibb.co/qYxW0VRk/Whats-App-Image-2025-07-31-at-02-45-52.jpg",
   },
   {
@@ -45,7 +45,7 @@ const teamMembers = [
   },
     {
     name: "Innocent Barassa",
-    role: "Director of African Culture & Heritage",
+    role: "Director General",
     image: "https://i.ibb.co/jZkDrH34/Whats-App-Image-2025-07-31-at-02-51-57.jpg",
   },
 ];
