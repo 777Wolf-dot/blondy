@@ -53,8 +53,8 @@ const Navbar = () => {
           <li><Link to="/membership" onClick={closeMenu}>Membership</Link></li>
           <li><Link to="/events" onClick={closeMenu}>Events</Link></li>
           <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
-           <li><Link to="/admin/program">Admin Program</Link></li>
-        <li><Link to="/admin/events">Admin Events</Link></li>
+           {/* <li><Link to="/admin/program">Admin Program</Link></li>
+        <li><Link to="/admin/events">Admin Events</Link></li> */}
           {/* Conditionally show Moderation Dashboard if admin */}
           {isAdmin && (
             <li><Link to="/moderation" onClick={closeMenu}>Moderation Dashboard</Link></li>
